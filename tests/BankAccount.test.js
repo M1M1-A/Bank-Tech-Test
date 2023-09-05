@@ -54,4 +54,11 @@ describe("BankAccount", () => {
         expect(bankAccount.balance).toEqual(150.00)
     })
 
+    it('updates the balance correctly when multiple wihtdrawals made', () => {
+        bankAccount.makeDeposit(200.00, '01/09/2023')
+        bankAccount.makeWithdrawal(50.00, '02/09/2023')
+        bankAccount.makeWithdrawal(50.00, '03/09/2023')
+        expect(bankAccount.balance).toEqual(100.00)
+    })
+
 })
