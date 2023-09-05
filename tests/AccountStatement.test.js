@@ -19,10 +19,25 @@ describe("AccountStatement", () =>{
                                                     balance: 100.55}]}
         
         const accountStatement = new AccountStatement(mockBankAccount)
+        const statement = accountStatement.printStatement()
                                                     
-        expect(accountStatement.printStatement).toEqual(
-            `date || credit || debit || balance
-             01/09/2023 || 100.55 || || 100.55`
+        expect(statement).toEqual(
+            `date || credit || debit || balance\n01/09/2023 || 100.55 || || 100.55`
         )
     })
+//     it('shows multiple account transactions in a nicely formatted way', () => {
+//         const mockBankAccount = { balance : 100.00, 
+//                                   transactions: [{  date: '01/09/2023', 
+//                                                     credit: '100.55', 
+//                                                     debit: null, 
+//                                                     balance: 100.55}]}
+        
+//         const accountStatement = new AccountStatement(mockBankAccount)
+//         const statement = accountStatement.printStatement()
+                                                    
+//         expect(statement).toEqual(
+//             `date || credit || debit || balance
+// 01/09/2023 || 100.55 || || 100.55`
+//         )
+//     })
 })
