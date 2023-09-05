@@ -48,4 +48,10 @@ describe("BankAccount", () => {
                                                   { date: '02/09/2023', credit: 200.00, debit: null, balance: 300.00 }])
     })
 
+    it('deducts the amount from the balance when a withdrawal is made', () => {
+        bankAccount.makeDeposit(200.00, '01/09/2023')
+        bankAccount.makeWithdrawal(50.00, '02/09/2023')
+        expect(bankAccount.balance).toEqual(150.00)
+    })
+
 })
