@@ -61,4 +61,11 @@ describe("BankAccount", () => {
         expect(bankAccount.balance).toEqual(100.00)
     })
 
+    it('creates a new debit transaction when a withdrawal is made', () => {
+        bankAccount.makeDeposit(200.00, '01/09/2023')
+        bankAccount.makeWithdrawal(50.00, '02/09/2023')
+        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: 200.00, debit: null, balance: 200.00 },
+                                                  { date: '02/09/2023', credit: null, debit: 50.00, balance: 150.00 }])
+    })
+
 })
