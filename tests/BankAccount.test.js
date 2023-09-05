@@ -32,4 +32,13 @@ describe("BankAccount", () => {
         expect(bankAccount.balance).toBe(1500.00)
     })
 
+    it('creates a new credit transaction when a credit is added', () => {
+        bankAccount.makeDeposit(100.00, '01/09/2023')
+        expect(bankAccount.transactions).toEqual([
+                                                    { date: '01/09/2023', 
+                                                    credit: 100.00, 
+                                                    debit: null, 
+                                                    balance: 100.00 }])
+    })
+
 })
