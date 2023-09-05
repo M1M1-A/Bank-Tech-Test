@@ -68,4 +68,13 @@ describe("BankAccount", () => {
                                                   { date: '02/09/2023', credit: null, debit: 50.00, balance: 150.00 }])
     })
 
+    it('creates multiple debit transactions when multiple withdrawals are made', () => {
+        bankAccount.makeDeposit(500.00, '01/09/2023')
+        bankAccount.makeWithdrawal(100.00, '02/09/2023')
+        bankAccount.makeWithdrawal(200.00, '03/09/2023')
+        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: 500.00, debit: null, balance: 500.00 },
+                                                  { date: '02/09/2023', credit: null, debit: 100.00, balance: 400.00 },
+                                                  { date: '03/09/2023', credit: null, debit: 200.00, balance: 200.00 }])
+    })
+
 })
