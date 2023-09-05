@@ -36,7 +36,7 @@ describe("BankAccount", () => {
         bankAccount.makeDeposit(100.00, '01/09/2023')
         expect(bankAccount.transactions).toEqual([
                                                     { date: '01/09/2023', 
-                                                    credit: 100.00, 
+                                                    credit: '100.00', 
                                                     debit: null, 
                                                     balance: 100.00 }])
     })
@@ -44,8 +44,8 @@ describe("BankAccount", () => {
     it('creates multiple new credit transactions when multiple credits added', () => {
         bankAccount.makeDeposit(100.00, '01/09/2023')
         bankAccount.makeDeposit(200.00, '02/09/2023')
-        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: 100.00, debit: null, balance: 100.00 },
-                                                  { date: '02/09/2023', credit: 200.00, debit: null, balance: 300.00 }])
+        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: '100.00', debit: null, balance: 100.00 },
+                                                  { date: '02/09/2023', credit: '200.00', debit: null, balance: 300.00 }])
     })
 
     it('deducts the amount from the balance when a withdrawal is made', () => {
@@ -64,17 +64,17 @@ describe("BankAccount", () => {
     it('creates a new debit transaction when a withdrawal is made', () => {
         bankAccount.makeDeposit(200.00, '01/09/2023')
         bankAccount.makeWithdrawal(50.00, '02/09/2023')
-        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: 200.00, debit: null, balance: 200.00 },
-                                                  { date: '02/09/2023', credit: null, debit: 50.00, balance: 150.00 }])
+        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: '200.00', debit: null, balance: 200.00 },
+                                                  { date: '02/09/2023', credit: null, debit: '50.00', balance: 150.00 }])
     })
 
     it('creates multiple debit transactions when multiple withdrawals are made', () => {
         bankAccount.makeDeposit(500.00, '01/09/2023')
         bankAccount.makeWithdrawal(100.00, '02/09/2023')
         bankAccount.makeWithdrawal(200.00, '03/09/2023')
-        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: 500.00, debit: null, balance: 500.00 },
-                                                  { date: '02/09/2023', credit: null, debit: 100.00, balance: 400.00 },
-                                                  { date: '03/09/2023', credit: null, debit: 200.00, balance: 200.00 }])
+        expect(bankAccount.transactions).toEqual([{ date: '01/09/2023', credit: '500.00', debit: null, balance: 500.00 },
+                                                  { date: '02/09/2023', credit: null, debit: '100.00', balance: 400.00 },
+                                                  { date: '03/09/2023', credit: null, debit: '200.00', balance: 200.00 }])
     })
 
     it('makeDeposit shows an error message if you enter a date in incorrect format', () => {
@@ -101,6 +101,13 @@ describe("BankAccount", () => {
         } catch (error) {
             expect(error.message).toEqual('Insufficient funds');
         }   
+    })
+
+    it('when I add a float debit/credit, it reflects as a float in transactions', () => {
+        bankAccount.makeDeposit(100.55, '01/09/2023');
+        bankAccount.makeWithdrawal(50.50, '02/09/2023')
+        expect(bankAccount.transactions).toEqual([  { date: '01/09/2023', credit: '100.55', debit: null, balance: 100.55},
+                                                    { date: '02/09/2023', credit: null, debit: '50.50', balance: 50.05 }])
     })
 
 

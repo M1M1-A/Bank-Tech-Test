@@ -151,15 +151,6 @@ describe("BankAccount", () => {
         // expect error message to be "Please enter a date in this format DD/MM/YY"
     })
 
-    // when I make a withdrawal amount that is not an float
-    // It gets changed and shows as a float in the transactions
-    it('changes non float debit amounts to float', () => {
-        // call makeDeposit with 200.00 and 01/09/2023
-        // call makeWithdrawal with 100 and 02/09/2023
-        // expect transactions to be [{ date: '02/09/2023', credit: null, debit: 100.00, balance: 400.00 },
-        //                            { date: '01/09/2023', credit: 200.00, debit: null, balance: 400.00} ]
-    })
-
     // when I try to make a withdrawal, with an incorrect date format, I get an error
     it('shows an error message if you enter a date in incorrect format', () => {
         // call makeDeposit with 100.00 and 01/09/2023
@@ -172,6 +163,15 @@ describe("BankAccount", () => {
         // call makeDeposit with 100.00 and 01/09/2023
         // call makeWithdrawal with 200.00 and 02-09-2023
         // expect error message to be "Insufficient funds"
+    })
+
+    // when I make a withdrawal or deposit amount that is not an float
+    // It gets changed and shows as a float in the transactions
+    it('when I add a float debit/credit, it reflects as a float in transactions', () => {
+        // call makeDeposit with 200.55 and 01/09/2023
+        // call makeWithdrawal with 100.55 and 02/09/2023
+        // expect transactions to be [{ date: '02/09/2023', credit: null, debit: 100.55, balance: 400.00 },
+        //                            { date: '01/09/2023', credit: 200.55, debit: null, balance: 400.00} ]
     })
 
 })
