@@ -62,8 +62,6 @@ describe("BankAccount and AccountStatement", () => {
 
         const statement = accountStatement.printStatement()
 
-        console.log(statement)
-
         expect(statement).toEqual(
             `date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00

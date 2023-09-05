@@ -3,12 +3,12 @@ const AccountStatement = require("../lib/AccountStatement")
 describe("AccountStatement", () =>{
     it('sets an instance of bankAccount in the constructor', () => {
         const mockBankAccount = { balance : 0, 
-                                  transactions: []}
+                                transactions: []}
         
         const accountStatement = new AccountStatement(mockBankAccount)
             
         expect(accountStatement.bankAccount).toEqual({  balance : 0, 
-                                            transactions: []})
+																											transactions: []})
     })
 
     it('shows account transactions in a nicely formatted way', () => {
