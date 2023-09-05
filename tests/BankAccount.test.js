@@ -26,4 +26,10 @@ describe("BankAccount", () => {
         expect(bankAccount.balance).toBe(1000.00)
     })
 
+    it('updates the balance correctly when multiple credits made', () => {
+        bankAccount.makeDeposit(1000.00, '01/09/2023')
+        bankAccount.makeDeposit(500.00, '02/09/2023')
+        expect(bankAccount.balance).toBe(1500.00)
+    })
+
 })
