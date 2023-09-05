@@ -145,13 +145,6 @@ describe("BankAccount", () => {
         //                            { date: '02/09/2023', credit: null, debit: 200.00, balance: 200.00 }]
     })
 
-    // when I try to add a credit amount that is not an float
-    // It gets changed and shows as a float in the transactions
-    it('changes non float credit amounts to float', () => {
-        // call makeDeposit with 100 and 01/09/2023
-        // expect transactions to be [{ date: '01/09/2023', credit: 100.00, debit: null, balance: 400.00 },
-    })
-
     // when I add a credit, with an incorrect date format, I get an error
     it('shows an error message if you enter a date in incorrect format', () => {
         // call makeDeposit with 100 and 01-09-2023
