@@ -17,4 +17,8 @@ describe("BankAccount", () => {
         expect(bankAccount.balance).toBe(0);
     })
 
+    it('shows transactions as empty array', () => {
+        expect(bankAccount.transactions).toEqual([])
+    })
+
 })
