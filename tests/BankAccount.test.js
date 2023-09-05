@@ -77,12 +77,32 @@ describe("BankAccount", () => {
                                                   { date: '03/09/2023', credit: null, debit: 200.00, balance: 200.00 }])
     })
 
-    it('shows an error message if you enter a date in incorrect format', () => {
+    it('makeDeposit shows an error message if you enter a date in incorrect format', () => {
         try {
             bankAccount.makeDeposit(100.00, '01-09-23');
         } catch (error) {
             expect(error.message).toEqual('Please enter a date in this format DD/MM/YYYY');
         }    
     })
+
+    it('makeWithdrawal shows an error message if you enter a date in incorrect format', () => {
+        try {
+            bankAccount.makeDeposit(100.00, '01/09/2023');
+            bankAccount.makeWithdrawal(50.00, '02-09-2023')
+        } catch (error) {
+            expect(error.message).toEqual('Please enter a date in this format DD/MM/YYYY');
+        }    
+    })
+
+    it('shows an error message if you try to withdraw more than in balance', () => {
+        try {
+            bankAccount.makeDeposit(100.00, '01/09/2023');
+            bankAccount.makeWithdrawal(200.00, '02/09/2023')
+        } catch (error) {
+            expect(error.message).toEqual('Insufficient funds');
+        }   
+    })
+
+
 
 })

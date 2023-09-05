@@ -166,6 +166,14 @@ describe("BankAccount", () => {
         // call makeWithdrawal with 50.00 and 02-09-2023
         // expect error message to be "Please enter a date in this format DD/MM/YY"
     })
+
+    // when I try to make a withdrawal above the available balance, I get an error
+    it('shows an error message try to withdraw more than in balance', () => {
+        // call makeDeposit with 100.00 and 01/09/2023
+        // call makeWithdrawal with 200.00 and 02-09-2023
+        // expect error message to be "Insufficient funds"
+    })
+
 })
 
 
