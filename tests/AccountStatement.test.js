@@ -27,7 +27,7 @@ describe("AccountStatement", () =>{
     })
     it('shows multiple account transactions in a nicely formatted way, most recent first', () => {
         const mockBankAccount = { balance : 100.00, 
-                                  transactions: [{  date: '01/09/2023', 
+                                transactions: [{  date: '01/09/2023', 
                                                     credit: '100.00', 
                                                     debit: null, 
                                                     balance: 100.00},
