@@ -1,11 +1,11 @@
-## README 
+# README 
 
     This is a small banking app that you can interact with via the Node.js REPL.
     It allows a user to make deposits and withdrawals and print out a statement of their transaction history.
 
-# Planning and Design
+## Planning and Design
 
-    To plan and design this program I used a Design Recipe and diagramming. (see **lib/designRecipe** and **lib/class-diagram.png**). 
+    To plan and design this program I used a Design Recipe and diagramming. (see lib/designRecipe and lib/class-diagram.png). 
 
     I started by breaking down the requirements into User Stories. I paid attention to the spec and acceptance criteria to create these. 
 
@@ -13,11 +13,10 @@
 
     Next I planned out Unit Tests for each class, including mocking where necessary, and then the Integration Tests. Tests were designed around the expected behaviour in each case. 
 
-# How to run install and run tests
+## How to run install and run tests
 
     To run testing with Jest, you will need to do the following:
 
-    ```javascript
     // Add the jest package
     npm add jest
 
@@ -26,11 +25,11 @@
 
     // run the tests
     jest
-    ```
+   
 
-    For a snapshot of the test coverage see **lib/test-coverage.png**
+    For a snapshot of the test coverage see lib/test-coverage.png
 
-# How to run program
+## How to run program
 
     This is an example of how you can interact with the program in the REPL.
 
@@ -56,8 +55,10 @@
 
     > console.log(statement)
 
-    **Expected Output:**
+    
 ```
+    Expected Output:
+
     date || credit || debit || balance  
     14/01/2023 || || 500.00 || 2500.00  
     13/01/2023 || 2000.00 || || 3000.00  
