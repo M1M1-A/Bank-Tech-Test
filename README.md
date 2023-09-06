@@ -13,7 +13,7 @@
 
     Next I planned out Unit Tests for each class, including mocking where necessary, and then the Integration Tests. Tests were designed around the expected behaviour in each case. 
 
-## How to run install and run tests
+## How to install and run tests
 
     To run testing with Jest, you will need to do the following:
 

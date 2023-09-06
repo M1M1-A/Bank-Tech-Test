@@ -1,0 +1,11 @@
+"filename", "language", "JavaScript", "Markdown", "JSON", "comment", "blank", "total"
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/README.md", "Markdown", 0, 37, 0, 0, 30, 67
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/lib/AccountStatement.js", "JavaScript", 18, 0, 0, 0, 8, 26
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/lib/BankAccount.js", "JavaScript", 35, 0, 0, 0, 10, 45
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/lib/designRecipe.md", "Markdown", 0, 192, 0, 0, 52, 244
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/package-lock.json", "JSON", 0, 0, 3309, 0, 1, 3310
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/package.json", "JSON", 0, 0, 15, 0, 1, 16
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/tests/AccountStatement.test.js", "JavaScript", 39, 0, 0, 0, 8, 47
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/tests/BankAccount.test.js", "JavaScript", 94, 0, 0, 0, 21, 115
+"/Users/admin/Desktop/Makers-Academy/bank-tech-test/tests/Integration.test.js", "JavaScript", 55, 0, 0, 0, 17, 72
+"Total", "-", 241, 229, 3324, 0, 148, 3942
