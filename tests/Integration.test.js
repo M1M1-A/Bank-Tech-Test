@@ -2,7 +2,6 @@ const AccountStatement = require("../lib/AccountStatement");
 const BankAccount = require("../lib/BankAccount")
 
 describe("BankAccount and AccountStatement", () => {
-
     let bankAccount;
     let accountStatement;
     let transactions;
@@ -20,7 +19,6 @@ describe("BankAccount and AccountStatement", () => {
     })
 
     it('creates a new bank account, makes a deposit and statement reflects this as credit', () => {
-
         bankAccount.makeDeposit(100.00)
         transactions = bankAccount.transactions
         const statement = accountStatement.printStatement(transactions)
@@ -31,7 +29,6 @@ describe("BankAccount and AccountStatement", () => {
     })
 
     it('creates a new bank account, makes a withdrawal and statement reflects this as debit', () => {
-        
         bankAccount.makeDeposit(100.00)
         bankAccount.makeWithdrawal(50.50)
         transactions = bankAccount.transactions
@@ -43,7 +40,6 @@ describe("BankAccount and AccountStatement", () => {
     })
 
     it('creates a new bank account, makes a multiple deposits and withdrawals and these are reflected in statement with most recent first', () => {
-
         bankAccount.makeDeposit(200.00)
         bankAccount.makeWithdrawal(100.00)
         bankAccount.makeDeposit(200.00)

@@ -55,7 +55,7 @@ Now enter these, one by one
 
     > console.log(statement)
 
-    Note: the currentDate will be the date of whenever you run the program
+Note: the currentDate will be the date of whenever you run the program
 ```
     Expected Output:
 
