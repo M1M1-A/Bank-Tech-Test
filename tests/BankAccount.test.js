@@ -34,9 +34,11 @@ describe("BankAccount", () => {
 
     it('creates a transaction with a correctly formatted current date', () => {
         bankAccount.makeDeposit(1000.00)
-        const currentDate = bankAccount.getDate()
         const transactionDate = bankAccount.transactions[0].date
-        expect(transactionDate).toEqual(currentDate)
+        const dateFormatPattern = /^\d{2}\/\d{2}\/\d{4}$/;
+        const isDateFormattedCorrectly = dateFormatPattern.test(transactionDate);
+    
+        expect(isDateFormattedCorrectly).toBe(true);    
     })
 
     it('creates a new credit transaction when a credit is added', () => {
@@ -53,8 +55,8 @@ describe("BankAccount", () => {
         bankAccount.makeDeposit(100.00)
         bankAccount.makeDeposit(200.00)
         const currentDate = bankAccount.getDate()
-        expect(bankAccount.transactions).toEqual([{ date: `${currentDate}`, credit: '100.00', debit: null, balance: 100.00 },
-                                                  { date: `${currentDate}`, credit: '200.00', debit: null, balance: 300.00 }])
+        expect(bankAccount.transactions).toEqual([  { date: `${currentDate}`, credit: '100.00', debit: null, balance: 100.00 },
+                                                    { date: `${currentDate}`, credit: '200.00', debit: null, balance: 300.00 }])
     })
 
     it('deducts the amount from the balance when a withdrawal is made', () => {
@@ -104,7 +106,4 @@ describe("BankAccount", () => {
         expect(bankAccount.transactions).toEqual([  { date: `${currentDate}`, credit: '100.55', debit: null, balance: 100.55},
                                                     { date: `${currentDate}`, credit: null, debit: '50.50', balance: 50.05 }])
     })
-
-
-
 })

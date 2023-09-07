@@ -51,7 +51,7 @@ class BankAccount {
 class AccountStatement {
 
     printStatement (transactions) {
-        // parameters: none
+        // parameters: takes array of transactions
         // returns: a list of all transactions from most recent to latest
     }
 }
@@ -114,7 +114,7 @@ describe("BankAccount", () => {
     })
 
     // when I make more than one withdrawal, the balance is updated accordingly
-    it('updates the balance correctly when multiple wihtdrawals made', () => {
+    it('updates the balance correctly when multiple withdrawals made', () => {
         // call makeDeposit with 200.00
         // call makeWithdrawal with 50.00
         // call makeWithdrawal with 100.00
@@ -124,7 +124,7 @@ describe("BankAccount", () => {
     // when I add a credit/debit, a transaction gets created with a correctly formatted date DD/MM/YYYY
     it('creates a transaction with a correctly formatted current date', () => {
         // call makeDeposit with 100 
-        //
+        // check it matches regex pattern for DD/MM/YYYY
     })
 
     // when I make a withdrawal, a transaction is added for each of them
@@ -169,10 +169,15 @@ describe("BankAccount", () => {
 describe("AccountStatement", () =>{
 
     // when I call print statement, I get a list of the recent transactions
-    // formatted in a nice way (most recent transaction first)
-    it('shows account transactions with the most recent first', () => {
+    // formatted in a nice way 
+    it('shows account transactions in a nicely formatted way', () => {
         // create a mock bank account with a balance and transactions
-        // expect transactions to show with most recent first
+        // expect transactions to show as a formatted string
+    })
+
+    it('shows multiple account transactions in a nicely formatted way, most recent first', () => {
+        // create a mock bank account with a balance and multiple transactions
+        // expect transactions to show as a formatted string, most recent first
     })
 })
 

@@ -41,26 +41,26 @@ Now enter these, one by one
 
     > const bankAccount = new BankAccount();
 
-    > bankAccount.makeDeposit(1000.00, '10/01/2023')
+    > bankAccount.makeDeposit(1000.00)
 
-    > bankAccount.makeDeposit(2000.00, '13/01/2023')
+    > bankAccount.makeDeposit(2000.00)
 
-    > bankAccount.makeWithdrawal(500.00, '14/01/2023')
+    > bankAccount.makeWithdrawal(500.00)
 
     > const AccountStatement = require('./lib/AccountStatement')
 
     > const accountStatement = new AccountStatement(bankAccount)
 
-    > const statement = accountStatement.printStatement()
+    > const statement = accountStatement.printStatement(bankAccount.transactions)
 
     > console.log(statement)
 
-    
+    Note: the currentDate will be the date of whenever you run the program
 ```
     Expected Output:
 
     date || credit || debit || balance  
-    14/01/2023 || || 500.00 || 2500.00  
-    13/01/2023 || 2000.00 || || 3000.00  
-    10/01/2023 || 1000.00 || || 1000.00  
+    ${currentDate} || || 500.00 || 2500.00  
+    ${currentDate} || 2000.00 || || 3000.00  
+    ${currentDate} || 1000.00 || || 1000.00  
 ```
