@@ -18,7 +18,7 @@ describe("BankAccount and AccountStatement", () => {
 
     it('creates a new bank account, makes a deposit and statement reflects this as credit', () => {
 
-        bankAccount.makeDeposit(100.00, '01/09/2023')
+        bankAccount.makeDeposit(100.00)
         const statement = accountStatement.printStatement()
 
         expect(statement).toEqual(
