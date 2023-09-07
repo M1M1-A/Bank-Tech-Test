@@ -32,30 +32,25 @@ class BankAccount {
     }
 
     makeDeposit (depositAmount, date) {
-        // parameters: amount to deposit (float number) and date (string in DD/MM/YY format)
+        // parameters: amount to deposit (float number)
         // returns: nothing
         // side effects: adds the deposit amount to the balance
-        //               pushes a new object to transactions with date,
+        //               pushes a new object to transactions with current date,
         //               credit amount and balance
     }
 
     makeWithdrawal (withdrawalAmount, date) {
-        // parameters: amount to be withdrawn (float number) and date (string in DD/MM/YY format)
+        // parameters: amount to be withdrawn (float number) 
         // returns: nothing
         // side-effect: deducts withdrawalAmount from balance
-        //              pushes a new object to transactions with date,
+        //              pushes a new object to transactions with current date,
         //              debit amount and balance
     }
 }
 
 class AccountStatement {
 
-    constructor (bankAccount) {
-        // paremeters: takes an instance of BankAccount
-        // side effects: sets instance of BankAccount in a variable
-    }
-
-    printStatement () {
+    printStatement (transactions) {
         // parameters: none
         // returns: a list of all transactions from most recent to latest
     }
@@ -99,16 +94,16 @@ describe("BankAccount", () => {
 
     // when I add a credit, a transaction gets created and added to transaction
     it('creates a new credit transaction when a credit is added', () => {
-        // call makeDeposit with 100 and 01/09/2023
-        // expect transactions to be [{ date: '01/09/2023', credit: 100.00, debit: null, balance: 100.00 }]
+        // call makeDeposit with 100 
+        // expect transactions to be [{ date: `${currentDate}`, credit: 100.00, debit: null, balance: 100.00 }]
     })
 
     // when I add more than one credit, a transaction is added for each of them
     it('creates multiple new credit transactions when multiple credits added', () => {
-        // call makeDeposit with 100 and 01/09/2023
-        // call makeDeposit with 200 and 02/09/2023
-        // expect transactions to be [ { date: '02/09/2023', credit: 200.00, debit: null, balance: 300.00 },
-        //                             { date: '01/09/2023', credit: 100.00, debit: null, balance: 100.00 }]
+        // call makeDeposit with 100 
+        // call makeDeposit with 200 
+        // expect transactions to be [ { date: `${currentDate}`, credit: 200.00, debit: null, balance: 300.00 },
+        //                             { date: `${currentDate}`, credit: 100.00, debit: null, balance: 100.00 }]
     })
 
     // when I make a withdrawal, it's deducted from the balance
@@ -126,53 +121,46 @@ describe("BankAccount", () => {
         // expect balance to be 50.00
     })
 
+    // when I add a credit/debit, a transaction gets created with a correctly formatted date DD/MM/YYYY
+    it('creates a transaction with a correctly formatted current date', () => {
+        // call makeDeposit with 100 
+        //
+    })
+
     // when I make a withdrawal, a transaction is added for each of them
     it('creates a new debit transaction when a withdrawal is made', () => {
-        // call makeDeposit with 500.00 and 01/09/2023
-        // call makeWithdrawal with 100.00 and 02/09/2023
-        // expect transactions to be [{ date: '02/09/2023', credit: null, debit: 100.00, balance: 400.00 }]
-        //                            { date: '01/09/2023', credit: 500.00, debit: null, balance: 500.00 }]
+        // call makeDeposit with 500.00 
+        // call makeWithdrawal with 100.00 
+        // expect transactions to be [{ date: `${currentDate}`, credit: null, debit: 100.00, balance: 400.00 }]
+        //                            { date: `${currentDate}`, credit: 500.00, debit: null, balance: 500.00 }]
     })
 
 
     // when I make more than one withdrawal, a transaction is created for each of them
     it('creates multiple debit transactions when multiple withdrawals are made', () => {
         // call makeDeposit with 500.00
-        // call makeWithdrawal with 100.00 and 01/09/2023
-        // call makeWithdrawal with 200.00 and 02/09/2023
-        // expect transactions to be [{ date: '01/09/2023', credit: null, debit: 100.00, balance: 400.00 },
-        //                            { date: '02/09/2023', credit: null, debit: 200.00, balance: 200.00 }]
+        // call makeWithdrawal with 100.00
+        // call makeWithdrawal with 200.00 
+        // expect transactions to be [{ date: `${currentDate}`, credit: null, debit: 100.00, balance: 400.00 },
+        //                            { date: `${currentDate}`, credit: null, debit: 200.00, balance: 200.00 }]
     })
 
-    // when I add a credit, with an incorrect date format, I get an error
-    it('shows an error message if you enter a date in incorrect format', () => {
-        // call makeDeposit with 100 and 01-09-2023
-        // expect error message to be "Please enter a date in this format DD/MM/YY"
-    })
-
-    // when I try to make a withdrawal, with an incorrect date format, I get an error
-    it('shows an error message if you enter a date in incorrect format', () => {
-        // call makeDeposit with 100.00 and 01/09/2023
-        // call makeWithdrawal with 50.00 and 02-09-2023
-        // expect error message to be "Please enter a date in this format DD/MM/YY"
-    })
 
     // when I try to make a withdrawal above the available balance, I get an error
     it('shows an error message try to withdraw more than in balance', () => {
-        // call makeDeposit with 100.00 and 01/09/2023
-        // call makeWithdrawal with 200.00 and 02-09-2023
+        // call makeDeposit with 100.00 
+        // call makeWithdrawal with 200.00 
         // expect error message to be "Insufficient funds"
     })
 
     // when I make a withdrawal or deposit amount that is not an float
     // It gets changed and shows as a float in the transactions
     it('when I add a float debit/credit, it reflects as a float in transactions', () => {
-        // call makeDeposit with 200.55 and 01/09/2023
-        // call makeWithdrawal with 100.55 and 02/09/2023
-        // expect transactions to be [{ date: '02/09/2023', credit: null, debit: 100.55, balance: 400.00 },
-        //                            { date: '01/09/2023', credit: 200.55, debit: null, balance: 400.00} ]
+        // call makeDeposit with 200.55 
+        // call makeWithdrawal with 100.55 
+        // expect transactions to be [{ date: `${currentDate}`, credit: null, debit: 100.55, balance: 400.00 },
+        //                            { date: `${currentDate}`, credit: 200.55, debit: null, balance: 400.00} ]
     })
-
 })
 
 
@@ -201,41 +189,41 @@ describe("BankAccount and AccountStatement", () => {
     // when I create a new bank account, make a deposit, and print statement,
     // the deposit shows in the statement as a 'credit'
     it('creates a new bank account, makes a deposit and statement reflects this as credit', () => {
-        // call bankAccount.makeDeposit with 100.00 on '01/09/2023'
+        // call bankAccount.makeDeposit with 100.00
         // call accountStatement.printStatement()
         // expect transaction to be
             'date || credit || debit || balance'
-            '01/09/2023 || 100.00 || || 100.00'
+            '`${currentDate}` || 100.00 || || 100.00'
     })
 
 
     // when I create a new bank account, make a deposit then a withdrawal, and print statement,
     // the withdrawal shows in the statement as a 'debit'
     it('creates a new bank account, makes a withdrawal and statement reflects this as debit', () => {
-        // call bankAccount.makeDeposit with 100.00 on '01/09/2023'
-        // call bankAccount.makeWithdrawal with 50.00 on '02/09/2023'
+        // call bankAccount.makeDeposit with 100.00 
+        // call bankAccount.makeWithdrawal with 50.00 
         // call accountStatement.printStatement()
         // expect transaction to be
             'date || credit || debit || balance'
-            '02/09/2023 || || 50.00 || 50.00'
-            '01/09/2023 || 100.00 || || 100.00'
+            '`${currentDate}` || || 50.00 || 50.00'
+            '`${currentDate}` || 100.00 || || 100.00'
     })
 
     // when I create a new bank account, and make several transactions
     // when I print statement, I see all these transactions listed (most recent first)
     it('creates a new bank account, makes a multiple deposits and withdrawals and these are reflected in statement with most recent first', () => {
-        // call bankAccount.makeDeposit with 200.00 on '01/09/2023'
-        // call bankAccount.makeWithdrawal with 100.00 on '02/09/2023'
-        // call bankAccount.makeDeposit with 200.00 on '03/09/2023'
-        // call bankAccount.makeWithdrawal with 100.00 on '04/09/2023'
+        // call bankAccount.makeDeposit with 200.00 
+        // call bankAccount.makeWithdrawal with 100.00 
+        // call bankAccount.makeDeposit with 200.00 
+        // call bankAccount.makeWithdrawal with 100.00 
 
         // call accountStatement.printStatement()
         // expect transaction to be
             'date || credit || debit || balance'
-            '04/09/2023 || || 100.00 || 200.00'
-            '03/09/2023 || 200.00 || || 300.00'
-            '02/09/2023 || || 100.00 || 100.00'
-            '01/09/2023 || 200.00 || || 200.00'
+            '`${currentDate}` || || 100.00 || 200.00'
+            '`${currentDate}` || 200.00 || || 300.00'
+            '`${currentDate}` || || 100.00 || 100.00'
+            '`${currentDate}` || 200.00 || || 200.00'
     })
 })
 
