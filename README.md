@@ -49,7 +49,7 @@ Now enter these, one by one
 
     > const AccountStatement = require('./lib/AccountStatement')
 
-    > const accountStatement = new AccountStatement(bankAccount)
+    > const accountStatement = new AccountStatement()
 
     > const statement = accountStatement.printStatement(bankAccount.transactions)
 
